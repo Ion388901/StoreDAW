@@ -51,26 +51,6 @@
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
-                                <td>
-                                    <a
-                                        href="{{ route('admin.collections.products.create', ['collection' => $collection]) }}"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fa fa-cubes"></i>
-                                        Agregar productos
-                                    </a>
-                                    <a
-                                        href="{{ route('admin.collections.products.edit', ['collection' => $collection]) }}"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fa fa-cubes"></i>
-                                        Editar productos
-                                    </a>
-                                    <a
-                                        href="{{ route('admin.collections.products.destroy', ['collection' => $collection]) }}"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fa fa-cubes"></i>
-                                        Eliminar productos
-                                    </a>
-                                </td>
                             </tr>
                             @endforeach
                             </tbody>

@@ -21,7 +21,6 @@
                     </ul>
                 </div>
             @endif
-
             <form method="POST" action="{{ route('admin.collections.store') }}">
                 @csrf
                 <div class="box">

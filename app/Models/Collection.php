@@ -14,7 +14,7 @@ class Collection extends Model {
         'product_id'
     ];
 
-    public function product()
+    public function products()
     {
         return $this->belongsToMany('App\Models\Product');
     }

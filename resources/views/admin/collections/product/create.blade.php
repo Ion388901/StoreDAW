@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <form method="POST" action="{{ route('admin.collections.products.store', ['collection' => $data['collection']]) }}">
+            <form method="POST" action="{{ route('admin.collections.product.store', ['collection' => $data['collection']]) }}">
                 @csrf
                 <div class="box">
                     <div class="box-body">

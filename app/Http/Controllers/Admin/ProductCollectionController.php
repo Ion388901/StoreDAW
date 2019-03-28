@@ -13,7 +13,7 @@ class ProductCollectionController extends BaseController
         $data = [];
         $data['collection'] = $collection;
         $data['products'] = Product::all();
-        return view('admin.product.collection.create', ['data' => $data]);
+        return view('admin.collections.product.create', ['data' => $data]);
     }
     
     public function store(Request $req, Collection $collection) {

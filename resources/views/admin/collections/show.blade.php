@@ -15,7 +15,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Nombre de la colección: {{ $data['collection']->name }}</h3>
                     <div class="pull-right box-tools">
-                        <a class="btn btn-info btn-sm" href="{{ route('admin.collections.products.create', ['collection' => $data['collection']]) }}">
+                        <a class="btn btn-info btn-sm" href="{{ route('admin.collections.product.create', ['collection' => $data['collection']]) }}">
                             Agregar nuevo producto
                         </a>
                     </div>
@@ -43,7 +43,7 @@
                             </tbody>
                         </table>
                     @else
-                        <p>Esta colección no tiene productos: <a href="{{ route('admin.collections.products.create', ['collection' => $data['collection']]) }}">agrega uno aquí</a></p>
+                        <p>Esta colección no tiene productos: <a href="{{ route('admin.collections.product.create', ['collection' => $data['collection']]) }}">agrega uno aquí</a></p>
                     @endif
                 </div>
             </div>

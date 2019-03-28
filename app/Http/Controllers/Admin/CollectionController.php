@@ -57,7 +57,9 @@ class CollectionController extends BaseController {
 
     public function show($id){
         $collection=Collection::findOrFail($id);
-        return view('admin.collections.show', compact('collection'));
+        $data = [];
+        $data['collection'] = $collection;
+        return view('admin.collections.show', ['data' => $data]);
     }
 
      /**
@@ -85,7 +87,6 @@ class CollectionController extends BaseController {
             'name'=>'required',
             'description'=>'required',
         ]);
-
         Collection::findOrFail($id)->update($req->all());
         return redirect()->route('admin.collections.index')->with('Función realizada', 'Se actualizo la información');
     }
@@ -93,11 +94,11 @@ class CollectionController extends BaseController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Collection $coleccion
+     * @param  \App\Collection $collection
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Coleccion $collection){
+    public function destroy(Collection $collection){
         $collection->delete();
         return redirect()->route('admin.collections.index')->with('Función realizada', 'Se elimino la información');
     }
