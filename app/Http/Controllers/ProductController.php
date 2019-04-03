@@ -67,13 +67,12 @@ class ProductController extends BaseController {
                         "name" => $product->name,
                         "quantity" => 1,
                         "price" => $product->price,
-                        "photo" => $product->photo
                     ]
             ];
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('Acción realizada', 'El producto se añadió al carrito de compras');
         }
 
         // if cart not empty then check if this product exist then increment quantity
@@ -83,7 +82,7 @@ class ProductController extends BaseController {
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('Acción realizada', 'El producto se añadió al carrito de compras');
 
         }
 
@@ -96,7 +95,7 @@ class ProductController extends BaseController {
 
         session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('Acción realizada', 'El productos se añadió al carrito de compras');
     }
 
     public function update(Request $request)
@@ -109,7 +108,7 @@ class ProductController extends BaseController {
 
             session()->put('cart', $cart);
 
-            session()->flash('success', 'Cart updated successfully');
+            session()->flash('Acción realizada', 'El carrito de compras se actualizo exitosamente');
         }
     }
 
@@ -126,7 +125,7 @@ class ProductController extends BaseController {
                 session()->put('cart', $cart);
             }
 
-            session()->flash('success', 'Product removed successfully');
+            session()->flash('Acción realizada', 'El producto se quito del carrito de compras');
         }
     }
 

@@ -37,7 +37,6 @@
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
-                                <td>{{ $product->collection->name }}</td>
                             </tr>
                             @endforeach
                             </tbody>

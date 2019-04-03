@@ -23,18 +23,18 @@
                 </ul>
             </div><br />
         @endif
-            <form method="POST" action="{{ route('admin.collections.update', $collection->id)}}">
+            <form method="POST" action="{{ route('admin.collections.update', $data['collection']->id)}}">
                 @method('PUT')
                 @csrf
                 <div class="box">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="">Nombre</label>
-                            <input name="product[name]" type="text" class="form-control">
+                            <input name="collection[name]" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Descripción</label>
-                            <input name="product[description]" type="text" class="form-control">
+                            <input name="collection[description]" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Productos</label>

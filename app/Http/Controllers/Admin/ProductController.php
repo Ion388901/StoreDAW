@@ -89,13 +89,13 @@ class ProductController extends BaseController {
 
     public function update(Request $req, $id){
         $req->validate([
-            'name'=>'required',
-            'description'=>'required',
-            'price'=>'required|integer',
-            'discount'=>'required|integer'
+            'product.name'=>'required',
+            'product.description'=>'required',
+            'product.price'=>'required|integer',
+            'product.discount'=>'required|integer'
         ]);
 
-        Product::findOrFail($id)->update($req->all());
+        Product::findOrFail($id)->update($req->input('product'));
         return redirect()->route('admin.products.index')->with('Función realizada', 'Se actualizo la información');
     }
 
@@ -106,8 +106,8 @@ class ProductController extends BaseController {
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Product $product){
-        $product->delete();
+    public function destroy($id){
+        Product::findOrFail($id)->delete();
         return redirect()->route('admin.products.index')->with('Función realizada', 'Se elimino la información');
     }
 }

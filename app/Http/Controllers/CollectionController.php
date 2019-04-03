@@ -31,6 +31,8 @@ class CollectionController extends BaseController {
 
     public function show($id){
         $collection=Collection::findOrFail($id);
-        return view('collections.show', compact('collection'));
+        $data = [];
+        $data['collection'] = $collection;
+        return view('collections.show', ['data' => $data]);
     }
 }

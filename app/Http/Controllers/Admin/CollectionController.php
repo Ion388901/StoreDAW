@@ -71,7 +71,10 @@ class CollectionController extends BaseController {
 
     public function edit($id){
         $collection = Collection::findOrFail($id);
-        return view('admin.collections.edit', compact('collection'));
+        $data = [];
+        $data['collection'] = $collection;
+        $data['products'] = Product::all();
+        return view('admin.collections.edit', ['data' => $data]);
     }
 
     /**
@@ -84,10 +87,13 @@ class CollectionController extends BaseController {
 
     public function update(Request $req, $id){
         $req->validate([
-            'name'=>'required',
-            'description'=>'required',
+            'collection.name'=>'required',
+            'collection.description'=>'required',
         ]);
-        Collection::findOrFail($id)->update($req->all());
+        $collection = Collection::findOrFail($id);
+        $collection->update($req->input('collection'));
+        $product = Product::find($req->input('product.product_id'));
+        $collection->products()->attach($product->id);
         return redirect()->route('admin.collections.index')->with('Función realizada', 'Se actualizo la información');
     }
 
@@ -98,8 +104,8 @@ class CollectionController extends BaseController {
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy(Collection $collection){
-        $collection->delete();
+    public function destroy($id){
+        Collection::findOrFail($id)->delete();
         return redirect()->route('admin.collections.index')->with('Función realizada', 'Se elimino la información');
     }
 }

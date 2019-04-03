@@ -30,3 +30,4 @@ Route::get('/products/{order?}', 'ProductController@index')->name('products.inde
 Route::get('cart', 'ProductController@cart');
 Route::get('add-to-cart/{id}', 'ProductController@addToCart');
 Route::patch('update-cart', 'ProductController@update');
+Route::delete('remove-from-cart', 'ProductController@remove');

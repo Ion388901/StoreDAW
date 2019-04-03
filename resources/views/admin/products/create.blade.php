@@ -34,14 +34,6 @@
                             <label for="">Descuento</label>
                             <input name="product[discount]" type="text" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>Colección</label>
-                            <select name="product[collection_id]" class="form-control">
-                            @foreach ($data['collections'] as $collection)
-                                <option value="{{ $collection->id }}">{{ $collection->name }}</option>
-                            @endforeach
-                            </select>
-                        </div>
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-info pull-right">Crear producto</button>

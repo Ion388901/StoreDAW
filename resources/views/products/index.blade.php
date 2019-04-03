@@ -48,21 +48,13 @@
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->discount }}</td>
-                                <td>{{ $product->collection->name }}</td>
                                 <td>
                                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">Mostrar producto</a>
+                                    <p class="btn-holder">
+                                        <a href="{{ url('add-to-cart/'.$product->id) }}" class="btn btn-warning btn-block text-center" role="button">Añadir al carrito</a> 
+                                    </p>
                                 </td>
                             </tr>
-                            <div class="col-xs-18 col-sm-6 col-md-3">
-                                <div class="thumbnail">
-                                    <div class="caption">
-                                        <h4>{{ $product->name }}</h4>
-                                        <p>{{ str_limit(strtolower($product->description), 50) }}</p>
-                                        <p><strong>Price: </strong> {{ $product->price }}$</p>
-                                        <p class="btn-holder"><a href="{{ url('add-to-cart/'.$product->id) }}" class="btn btn-warning btn-block text-center" role="button">Añadir al carrito</a> </p>
-                                    </div>
-                                </div>
-                            </div>
                             @endforeach
                             </tbody>
                         </table>
