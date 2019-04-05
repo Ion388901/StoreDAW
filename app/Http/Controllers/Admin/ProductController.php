@@ -110,4 +110,5 @@ class ProductController extends BaseController {
         Product::findOrFail($id)->delete();
         return redirect()->route('admin.products.index')->with('Función realizada', 'Se elimino la información');
     }
+
 }

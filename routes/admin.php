@@ -33,3 +33,6 @@ Route::put('collections/update/{id}', 'CollectionController@update')->name('coll
 
 Route::get('collections/{collection}/products/create', 'ProductCollectionController@create')->name('collections.product.create');
 Route::post('collections/{collection}/products', 'ProductCollectionController@store')->name('collections.product.store');
+
+Route::get('orders', 'OrdersController@index')->name('orders.index');
+Route::get('report/orders', 'OrdersController@report')->name('orders.report');

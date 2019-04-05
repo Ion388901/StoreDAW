@@ -27,7 +27,6 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Descripción</th>
                                     <th>Productos</th>
                                 </tr>
                             </thead>
