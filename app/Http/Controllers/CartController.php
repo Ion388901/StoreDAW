@@ -11,22 +11,10 @@ use App\Models\User;
 class CartController extends BaseController
 {
 
-public function checkout(Request $req, $order = null){
-        $products = [];
+public function checkout(Request $req, $order = null) {
+        $cart = [];
         $data = [];
-        $data['products'] = $products;
+        $data['cart'] = $cart;
         return view('cart.checkout', ['data' => $data]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-    public function review($id){
-        $cart=Cart::findOrFail($id);
-        return view('order.review', compact('product'));
     }
 }

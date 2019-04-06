@@ -51,7 +51,7 @@
                                 <td>
                                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">Mostrar producto</a>
                                     <p class="btn-holder">
-                                        <a href="{{ url('add-to-cart/'.$product->id) }}" class="btn btn-warning btn-block text-center" role="button">Añadir al carrito</a> 
+                                        <a href="{{ route('cart.index', $cart->id, $cart->product_id) }}" class="btn btn-warning btn-block text-center" role="button">Añadir al carrito</a> 
                                     </p>
                                 </td>
                             </tr>

@@ -21,9 +21,7 @@
             <tr>
                 <th>Order ID</th>
                 <th>Ordered Products</th>
-                <th>Payment Method</th>
                 <th>Grand Total</th>
-                <th>Created on</th>
             </tr>
         </thead>
         <tbody>
@@ -32,12 +30,10 @@
                 <td>{{ $order->id }}</td>
                 <td>
                 	@foreach($order->orders as $pro)
-                		<a href="{{ url('/orders/'.$order->id) }}">{{ $pro->product_code }}</a><br>
+                		<a href="{{ url('/cart'.$order->id) }}">{{ $pro->product_id }}</a><br>
                 	@endforeach
                 </td>
-                <td>{{ $order->payment_method }}</td>
-                <td>{{ $order->grand_total }}</td>
-                <td>{{ $order->created_at }}</td>
+                <td>{{ $order->total }}</td>
             </tr>
             @endforeach
         </tbody>
