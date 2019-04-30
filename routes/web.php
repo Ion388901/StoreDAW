@@ -27,6 +27,7 @@ Route::get('/collections', 'CollectionController@index')->name('collections.inde
 Route::get('/collections/show/{id}', 'CollectionController@show')->name('collections.show');    
 Route::get('/collections/{order?}', 'CollectionController@index')->name('collections.index');    
 Route::get('/products/{order?}', 'ProductController@index')->name('products.index');
-Route::get('/cart', 'CartProductController@index')->name('cart.index');
-Route::get('/cart/pay', 'CartController@checkout')->name('cart.checkout');
-Route::get('/cart/pay/review', 'OrderController@review')->name('order.review');
+Route::get('/products/cart', 'ProductsController@cart')->name('cart');
+Route::get('/products/add-to-cart/{id}', 'ProductsController@addToCart');
+Route::patch('/products/update-cart', 'ProductsController@update');
+Route::delete('/products/remove-from-cart', 'ProductsController@remove');

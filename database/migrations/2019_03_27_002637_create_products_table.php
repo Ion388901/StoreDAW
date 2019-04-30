@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->float('price');
             $table->float('discount')->nullable();
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

@@ -6,21 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model {
 
-    public $table = 'products';
+    public $table = 'orders';
 
     protected $fillable = [
-        'cart_id',
-        'total',
         'user_id',
+        'total',
+        'status'
     ];
-
-    public function cart()
-    {
-        return $this->belongsToMany('App\Models\Cart');
-    }
 
     public function user()
     {
         return $this->hasOne('App\Models\User');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product');
+    }
+    
 }

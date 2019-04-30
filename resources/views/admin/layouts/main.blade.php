@@ -28,6 +28,7 @@
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    @stack('layout_end_head')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -67,6 +68,11 @@
                         <span>Colecciones</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.reports.index') }}">
+                        <span>Reportes</span>
+                    </a>
+                </li>
             </ul>
             <!-- /.sidebar-menu -->
             </section>
@@ -86,5 +92,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.8/js/adminlte.min.js"></script>
+    @stack('layout_end_body')
 </body>
 </html>
