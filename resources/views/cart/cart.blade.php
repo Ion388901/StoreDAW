@@ -58,10 +58,10 @@
             <td class="text-center"><strong>Total {{ $total }}</strong></td>
         </tr>
         <tr>
-            <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continua Comprando</a></td>
+            <td><a href="{{ route('products.index') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>Continua Comprando</a></td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
-            <td><a href="{{ route('cart.checkout', $cart->id ) }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Hacer checkout</a></td>
+            <td><a href="{{ route('order.create') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i>Hacer checkout</a></td>
         </tr>
         </tfoot>
     </table>

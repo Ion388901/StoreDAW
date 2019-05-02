@@ -40,6 +40,7 @@
                                     <th>Descripción</th>
                                     <th>Precio</th>
                                     <th>Descuento</th>
+                                    <th>Cantidad</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,6 +51,7 @@
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->discount }}</td>
+                                <td>{{ $product->quantity }}</td>
                                 <td>
                                     <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                     <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-info">Mostrar producto</a>

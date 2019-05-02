@@ -36,7 +36,7 @@
         <header class="main-header">
             <!-- Logo -->
             <a href="{{ route('admin.dashboard.index') }}" class="logo">
-                Productos
+                Tienda
             </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">

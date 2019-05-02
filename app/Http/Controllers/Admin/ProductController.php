@@ -92,7 +92,8 @@ class ProductController extends BaseController {
             'product.name'=>'required',
             'product.description'=>'required',
             'product.price'=>'required|integer',
-            'product.discount'=>'required|integer'
+            'product.discount'=>'required|integer',
+            'product.quantity'=>'required|integer'
         ]);
 
         Product::findOrFail($id)->update($req->input('product'));

@@ -9,16 +9,16 @@ use App\Models\Order;
 
 class ProductOrderController extends BaseController
 {
-    public function create(Request $req, Collection $collection) {
+    public function create(Request $req, Order $order) {
         $data = [];
-        $data['collection'] = $collection;
+        $data['order'] = $order;
         $data['products'] = Product::all();
-        return view('admin.collections.product.create', ['data' => $data]);
+        return view('order.create', ['data' => $data]);
     }
     
-    public function store(Request $req, Collection $collection) {
-        $product = Product::find($req->input('product_collection.product_id'));
-        $collection->products()->attach($product->id);
-        return redirect()->route('admin.collections.show', ['collection' => $collection]);
+    public function store(Request $req, Order $order) {
+        $product = Product::find($req->input('product_order.product_id'));
+        $order->products()->attach($cart = session()->get('cart'));
+        return redirect()->route('order.review', ['order' => $order]);
     }
 }

@@ -44,6 +44,10 @@
                             <label for="">Descuento</label>
                             <input name="product[discount]" type="text" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="">Cantidad</label>
+                            <input name="product[quantity]" type="text" class="form-control">
+                        </div>
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-info pull-right">Guardar cambios</button>
