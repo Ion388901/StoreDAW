@@ -23,15 +23,21 @@ class OrderController extends BaseController
     }
 
     public function create(Request $req) {
-        dd(session()->get('cart'));
-        $order = new App\Models\Order;
+        // dd(session()->get('cart'));
+        $order = new \App\Models\Order;
+        $order->user_id = \Auth::user()->id;
+        $order->total = 100;
+        $order->status = FALSE;
         $order->save();
         $productsIds = [];
         $cart = session()->get('cart');
         foreach($cart as $id => $product) {
-            $producsIds = $id;
+            
+            $productsIds[] = $id;
+            $order->products()->attach($id, ['product_quantity' => $product["quantity"] ]);
+
         }
-        $order->products()->attach($productsIds);
+        return view('order.review', ['order' => $order]);    
     }
 
     public function transaction(Request $req, Order $order) {
@@ -42,6 +48,7 @@ class OrderController extends BaseController
         // Ver la documentación de Paypal
         // Modificar tu orden a un estatus de pagada.
         // Preguntar por más referencias para la verificación del Order ID que envía paypal sea válido
+        // $order->status = TRUE;
         return response()->json($data);
     }
 
