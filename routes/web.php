@@ -43,4 +43,4 @@ Route::get('/collections', 'CollectionController@index')->name('collections.inde
 Route::get('/collections/show/{id}', 'CollectionController@show')->name('collections.show');    
 Route::get('/collections/{order?}', 'CollectionController@index')->name('collections.index');
 
-
+/* Verificar que todas las rutas de orders esten funcionando correctamente */

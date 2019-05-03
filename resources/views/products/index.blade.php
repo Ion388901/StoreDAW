@@ -21,9 +21,14 @@
                             Ordenar de forma descendente (precio)
                         </a>
                         <a
-                            class="btn btn-error btn-sm"
+                            class="btn btn-success btn-sm"
                             href="{{ route('products.index', ['order' => 'asc']) }}">
                             Ordenar de forma ascendente (precio)
+                        </a>
+                        <a 
+                            class="btn btn-success btn-sm"
+                            href="{{ route('cart') }}">
+                            Carrito de compras
                         </a>
                     </div>
                 </div>

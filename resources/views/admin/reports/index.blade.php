@@ -33,6 +33,8 @@
     </div>
 @endsection
 
+<!-- Revisar rapido si la manera en que se veran las tres queries es correcta, preguntar sobre el gráfico usado y ver si se usa o se quita mejor. -->
+
 @push('layout_end_body')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 <script>

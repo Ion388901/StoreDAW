@@ -66,3 +66,5 @@
     }).render('#paypal-button-container');
 </script>
 @endpush
+
+<!-- Revisar que el checkout y paypal funcione, que este recibiendo la orden correctamente y se este almacenado, mostrar al profe el ejemplo con el change status para ver como adaptarlo aquí, lo mismo con el cupón de descuento -->

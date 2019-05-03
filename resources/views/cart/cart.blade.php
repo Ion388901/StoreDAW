@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title', 'Cart')
-
+<!-- Ver si el section(title, cart) es necesario o se puede eliminar -->
 @section('content')
 
     @if(session('success'))
@@ -16,10 +16,10 @@
         <thead>
         <tr>
             <th style="width:50%">Producto</th>
-            <th style="width:10%">Precio</th>
-            <th style="width:8%">Cantidad</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
-            <th style="width:10%"></th>
+            <th style="width:25%">Precio</th>
+            <th style="width:25%">Cantidad</th>
+            <th style="width:20%" class="text-center">Subtotal</th>
+            <th style="width:15%"></th>
         </tr>
         </thead>
         <tbody>
@@ -51,6 +51,7 @@
                 </tr>
             @endforeach
         @endif
+        <!-- revisar porque no funcionan los botones de update y remove cart. posiblemente tiene que ver con ids de productos pero no he podido identificar la causa -->
 
         </tbody>
         <tfoot>
@@ -71,16 +72,16 @@
 
 @section('scripts')
 
-
-    <script type="text/javascript">
-
+<script type="text/javascript">
+    $(function(){
+        console.log("un string");
         $(".update-cart").click(function (e) {
            e.preventDefault();
-
+            
            var ele = $(this);
 
             $.ajax({
-               url: '{{ url('update-cart') }}',
+               url: '{{ route('update-cart') }}',
                method: "patch",
                data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
                success: function (response) {
@@ -96,7 +97,7 @@
 
             if(confirm("Are you sure")) {
                 $.ajax({
-                    url: '{{ url('remove-from-cart') }}',
+                    url: '{{ route('remove-from-cart') }}',
                     method: "DELETE",
                     data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
                     success: function (response) {
@@ -106,6 +107,7 @@
             }
         });
 
-    </script>
-
+    });
+</script>
+<!-- revisar porque no funcionan los botones de update y remove cart. posiblemente tiene que ver con ids de productos pero no he podido identificar la causa -->
 @endsection

@@ -6,7 +6,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Models\Order;
-use App\Models\Product;
 use DB;
 
 class ReportController extends BaseController
@@ -25,3 +24,6 @@ class ReportController extends BaseController
         return view('admin.reports.index', ['data' => $data]);
     }
 }
+
+// Una vez funcionando el carrito y el update status, verificar que si revisa las ordenes para la realización de queries
+// Apuntar la sugerencia del profesor sobre que escribir para que se hagan las otras dos queries

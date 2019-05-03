@@ -25,3 +25,5 @@ class Order extends Model {
     }
     
 }
+
+// Revisar nuevamente si el modelo esta bien
