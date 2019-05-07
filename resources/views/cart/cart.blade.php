@@ -51,7 +51,6 @@
                 </tr>
             @endforeach
         @endif
-        <!-- revisar porque no funcionan los botones de update y remove cart. posiblemente tiene que ver con ids de productos pero no he podido identificar la causa -->
 
         </tbody>
         <tfoot>
@@ -74,7 +73,6 @@
 
 <script type="text/javascript">
     $(function(){
-        console.log("un string");
         $(".update-cart").click(function (e) {
            e.preventDefault();
             

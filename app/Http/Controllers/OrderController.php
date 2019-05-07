@@ -35,7 +35,7 @@ class OrderController extends BaseController
             
             $productsIds[] = $id;
             $order->products()->attach($id, ['product_quantity' => $product["quantity"] ]);
-
+            // aqui se puede implementar descuento
         }
         return view('order.review', ['order' => $order]);    
     }

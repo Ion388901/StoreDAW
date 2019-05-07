@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use DB;
 
+// Cuanto gano 
+// Producto mas vendido
+// Comprador MVP (el que más compro)
+
 class ReportController extends BaseController
 {
 
@@ -16,6 +20,7 @@ class ReportController extends BaseController
         FROM cards
         WHERE 1";
         $raw = DB::select($query);
+        //aqui puedo poner las otras queries
         $attack_total = $raw[0]->attack_total;
         $defense_total = $raw[0]->defense_total;
         $data = [];

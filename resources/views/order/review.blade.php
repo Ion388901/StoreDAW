@@ -6,15 +6,11 @@
 <table class="table">
     <tr>
         <th>Orden</th>
-        <td>{{ $data['order']->order_id }}</td>
-    </tr>
-    <tr>
-        <th>Productos</th>
-        <td>{{ $data['order']->cart }}</td>
+        <td>{{ $order->id }}</td>
     </tr>
     <tr>
         <th>Total</th>
-        <td>{{ $data['order']->total }}</td>
+        <td>{{ $order->total }}</td>
     </tr>
     <tr>
         <td colspan="2">
@@ -36,7 +32,7 @@
         return actions.order.create({
             purchase_units: [{
                 amount: {
-                    value: '{{ $data['product']->price }}'
+                    value: '{{ $order->total }}'
                 }
             }]
         });
@@ -45,7 +41,7 @@
                 // Capture the funds from the transaction
                 return actions.order.capture().then(function(details) {
                     // Call your server to save the transaction
-                    return fetch('{{ route('orders.transaction', ['order' => $data['cart']])}}', {
+                    return fetch('{{ route('orders.transaction', ['order' => $order])}}', {
                         method: 'post',
                         headers: {
                             'content-type': 'application/json'
@@ -56,7 +52,7 @@
                     })
                     .then(function(response) {
                         if (response.ok) {
-                            window.location = '{{ route('orders.transaction.success', ['order' => $data['cart']]) }}';
+                            window.location = '{{ route('orders.transaction.success', ['order' => $order]) }}';
                         } else {
                             console.log(response);
                         }
@@ -68,3 +64,4 @@
 @endpush
 
 <!-- Revisar que el checkout y paypal funcione, que este recibiendo la orden correctamente y se este almacenado, mostrar al profe el ejemplo con el change status para ver como adaptarlo aquí, lo mismo con el cupón de descuento -->
+<!-- ¿Qué parametros esta recibiendo? deberían de ser otros? o estan bien? En caso de estar bien entonces ver porque no jala -->
