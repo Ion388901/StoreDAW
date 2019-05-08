@@ -66,6 +66,7 @@ class ProductController extends BaseController {
                         "name" => $product->name,
                         "quantity" => 1,
                         "price" => $product->price,
+                        "discount" => $product->discount
                     ]
             ];
 
@@ -90,6 +91,7 @@ class ProductController extends BaseController {
             "name" => $product->name,
             "quantity" => 1,
             "price" => $product->price,
+            "discount" => $product->discount
         ];
 
         session()->put('cart', $cart);
@@ -125,5 +127,27 @@ class ProductController extends BaseController {
             session()->flash('success', 'Product removed successfully');
         }
     }
+
+    /*
+    public function applyDiscount(Request $request){
+
+        $cart = session()->get('cart');
+
+        if($cart[$request->id]["discount"] == $product->discount){
+
+            $cart[$id]['price'] -= ($cart[$id]['price']*0.20);
+
+            session()->put('cart', $cart);
+
+            session()->flash('success', 'Discount applied successfully');
+
+        }
+        else{
+
+            session()->flash('error', 'Invalid discount');
+
+        }
+    }
+    */
 
 }

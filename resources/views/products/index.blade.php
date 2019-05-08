@@ -41,7 +41,6 @@
                                     <th>Nombre</th>
                                     <th>Descripción</th>
                                     <th>Precio</th>
-                                    <th>Descuento</th>
                                     <th>Colección</th>
                                     <th>Cantidad</th>
                                 </tr>
@@ -53,7 +52,6 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td>{{ $product->discount }}</td>
                                 <td>{{ $product->quantity }}</td>
                                 <td>
                                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-info">Mostrar producto</a>

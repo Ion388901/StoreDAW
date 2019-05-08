@@ -31,12 +31,16 @@ class OrderController extends BaseController
         $order->save();
         $productsIds = [];
         $cart = session()->get('cart');
+        $total = 0;
         foreach($cart as $id => $product) {
             
             $productsIds[] = $id;
             $order->products()->attach($id, ['product_quantity' => $product["quantity"] ]);
+            $total += $product['price'] * $product['quantity'];
             // aqui se puede implementar descuento
         }
+        $order->total = $total;
+        $order->save();
         return view('order.review', ['order' => $order]);    
     }
 
@@ -44,16 +48,16 @@ class OrderController extends BaseController
         $data = [];
         $data['order'] = $order;
         $data['transaction'] = 'transaction-done';
-        // Verificar que el Order ID que te envía Paypal sea válido.
-        // Ver la documentación de Paypal
-        // Modificar tu orden a un estatus de pagada.
-        // Preguntar por más referencias para la verificación del Order ID que envía paypal sea válido
-        // $order->status = TRUE;
+        $order = Order::find($order->id);
+        /*
+        foreach($order as $id => $order_product){
+            $quantity -= $order_product['product_quantity'];
+        }
+        $product->quantity = $quantity;
+        $product->save();
+        */
+        $order->status = TRUE;
+        $order->save();
         return response()->json($data);
     }
-
-
 }
-
-// Ver si el metodo propuesto en Product Order Controller funciona mejor aquí
-// Definir mejor que esta haciendo este controlador que no hace Product Order Controller

@@ -69,5 +69,3 @@
     </div>
     <div style="margin-bottom: 20px;"></div>
 @endsection
-
-<!-- Revisar con el profesor este código tomado de otro proyecto y ver que cambios hay que poner para que funcione -->

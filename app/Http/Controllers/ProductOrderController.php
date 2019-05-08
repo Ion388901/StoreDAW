@@ -32,8 +32,3 @@ class ProductOrderController extends BaseController
         return redirect()->route('order.review', ['order' => $order]);
     }
 }
-
-// porque crear un new \App\Order cuando ya existe el modelo order?
-// nada más verficar que el attach funciona
-// actualmente este controlador aunque regresa vistas parece no estar conectado al programa
-// porque al correrlo no parece que se acceda a este controlador

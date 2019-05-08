@@ -49,6 +49,7 @@
                         <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
                     </td>
                 </tr>
+                
             @endforeach
         @endif
 

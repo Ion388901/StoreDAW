@@ -28,10 +28,11 @@ Route::get('/products/cart', 'ProductController@cart')->name('cart');
 Route::get('/products/add-to-cart/{id}', 'ProductController@addToCart')->name('add-to-cart');
 Route::patch('/products/update-cart', 'ProductController@update')->name('update-cart');
 Route::delete('/products/remove-from-cart', 'ProductController@remove')->name('remove-from-cart');
+Route::patch('/products/apply-discount', 'ProductController@applyDiscount')->name('apply-discount');
 
 Route::get('orders/create', 'OrderController@create')->name('order.create');
-Route::post('orders/{cart}/transaction-done', 'OrderController@transaction')->name('orders.transaction');
-Route::get('orders/{cart}/purchase/success', function() {
+Route::post('orders/{order}/transaction-done', 'OrderController@transaction')->name('orders.transaction');
+Route::get('orders/{order}/purchase/success', function() {
     echo 'La compra fue realizada exitosamente';
 })->name('orders.transaction.success');
 

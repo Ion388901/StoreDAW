@@ -23,7 +23,7 @@
 
 @push('layout_end_body')
 <script
-    src="https://www.paypal.com/sdk/js?client-id=AeNZ2yAx7qVd0-FhmRPVhAj8R0X-1E2iCaNn9JwI4QEATcQ87_rpmAl4Y0BkiznlRGMAwU7nnO4HMtE4&currency=MXN">
+    src="https://www.paypal.com/sdk/js?client-id=AV-BtqbTCRMwWUfLzQh4Muv7Y7dlU33Mawt2FwcdcRbeo-zlVPSYzD4Otin5mLUtWwkARLo76VndDfRO&currency=MXN">
 </script>
 <script>
     paypal.Buttons({
