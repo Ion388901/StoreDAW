@@ -49,13 +49,16 @@ class OrderController extends BaseController
         $data['order'] = $order;
         $data['transaction'] = 'transaction-done';
         $order = Order::find($order->id);
-        /*
-        foreach($order as $id => $order_product){
-            $quantity -= $order_product['product_quantity'];
-        }
-        $product->quantity = $quantity;
-        $product->save();
-        */
+        \Log::debug($order);
+        foreach($order->products as $op) {
+
+            $product = Product::find($op->id);
+            \Log::debug($op->pivot->product_quantity);
+
+            $product->quantity -= $op->pivot->product_quantity;
+            $product->save();
+        }    
+        
         $order->status = TRUE;
         $order->save();
         return response()->json($data);
