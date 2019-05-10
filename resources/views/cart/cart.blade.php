@@ -48,6 +48,17 @@
                         <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
                         <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
                     </td>
+                    <div class="box">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="">Código de Descuento</label>
+                            <input type="text" value="{{ $details['discount'] }}" class="form-control">
+                        </div>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-warning apply-discount" data-id="{{ $id }}"><i class="fa fa-refresh"></i>Aplicar Descuento</button>
+                        </td>
+                    </div>
+                </div>
                 </tr>
                 
             @endforeach
@@ -104,6 +115,23 @@
                     }
                 });
             }
+        });
+
+        $(".apply-discount").click(function (e) {
+            console.log("Si entra aquí");
+            e.preventDefault();
+
+            var ele = $(this);
+
+                $.ajax({
+                    url: '{{ route('apply-discount') }}',
+                    method: "patch",
+                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), price: ele.parents("tr").find(".price").val()}, 
+                    success: function (response) {
+                        window.location.reload();
+                    }
+                });
+            
         });
 
     });

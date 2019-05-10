@@ -128,10 +128,12 @@ class ProductController extends BaseController {
         }
     }
 
-    /*
+    
     public function applyDiscount(Request $request){
 
         $cart = session()->get('cart');
+        $product = Product::find($request->id);
+        $id = $request->id;
 
         if($cart[$request->id]["discount"] == $product->discount){
 
@@ -148,6 +150,6 @@ class ProductController extends BaseController {
 
         }
     }
-    */
+    
 
 }
