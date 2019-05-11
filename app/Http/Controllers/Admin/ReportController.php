@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use DB;
 
-// Cuanto gano 
+// Cuanto gano (done)
 // Producto mas vendido
 // Comprador MVP (el que más compro)
 
@@ -16,19 +16,14 @@ class ReportController extends BaseController
 {
 
     public function index(Request $req) {
-        $query = "SELECT SUM(attack) as attack_total, SUM(defense) as defense_total
-        FROM cards
+        $query = "SELECT SUM(total) as products_sold
+        FROM orders
         WHERE 1";
         $raw = DB::select($query);
         //aqui puedo poner las otras queries
-        $attack_total = $raw[0]->attack_total;
-        $defense_total = $raw[0]->defense_total;
+        $products_sold = $raw[0]->products_sold;
         $data = [];
-        $data['attack_total'] = $attack_total;
-        $data['defense_total'] = $defense_total;
+        $data['products_sold'] = $products_sold;
         return view('admin.reports.index', ['data' => $data]);
     }
 }
-
-// Una vez funcionando el carrito y el update status, verificar que si revisa las ordenes para la realización de queries
-// Apuntar la sugerencia del profesor sobre que escribir para que se hagan las otras dos queries
