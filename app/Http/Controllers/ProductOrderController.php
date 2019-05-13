@@ -13,6 +13,12 @@ use App\Models\Order;
 
 class ProductOrderController extends BaseController
 {
+    /**
+     * 
+     * Crea un nuevo order_product en esa tabla, recibe valores del modelo de order y product. 
+     * Estos son usados en las queries del reporte del admin
+     * 
+     * */ 
     public function create(Request $req, Order $order) {
         $data = [];
         $data['order'] = $order;
@@ -22,6 +28,12 @@ class ProductOrderController extends BaseController
         return view('order.create', ['data' => $data]);
     }
     
+    /**
+     * 
+     * Guarda el nuevo order_product en esa tabla, guarda valores del modelo de ordeer y product.
+     * Estos son usados en las queries del reporte del admin
+     * 
+     */
     public function store(Request $req, Order $order) {
         $productsIds = [];
         $cart = session()->get('cart');
